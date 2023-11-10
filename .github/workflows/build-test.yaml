@@ -35,4 +35,4 @@ jobs:
           cmake ..
           make
       - name: Run tests
-        run: ./MiscadaProjectGp12Tests
+        run: ./build/MiscadaProjectGp12Tests
