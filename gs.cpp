@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
-
+#include "gs.h"
 // Define simulation parameters
 const int width = 256;                // Width of the grid
 const int height = 256;               // Height of the grid
@@ -108,6 +108,7 @@ double countElementsAboveThreshold(double threshold) {
     return (double)(count)/(width*height);
 }
 
+#ifndef TESTS
 int main(int argc, char* argv[]) {
     if (argc != 5){
         std::cout << "Usage: " << argv[0] << " <Du> <Dv> <F> <k> <threshold>" << std::endl;
@@ -139,4 +140,4 @@ int main(int argc, char* argv[]) {
     
     return 0;
 }
-
+#endif
