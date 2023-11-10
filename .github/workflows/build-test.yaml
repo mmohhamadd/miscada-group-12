@@ -2,28 +2,37 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main", "ci-mmohhamadd"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Install dependencies
-      run: sudo apt-get install libgtest-dev cmake -y
-    - name: Build
-      run: |
-        cd /usr/src/gtest
-        sudo cmake CMakeLists.txt
-        sudo make
-        sudo cp *.a /usr/lib
-        cd -
-    - name: Compile
-      run: g++ -std=c++11 -pthread -o gs_test gs.cpp test.cpp -lgtest
-    - name: Run tests
-      run: ./gs_test
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: sudo apt-get install libgtest-dev cmake -y
+      - name: Build Gtest
+        run: |
+          sudo apt-get install -y libgtest-dev cmake
+          mkdir -p $HOME/build
+          cd $HOME/build
+          sudo cmake /usr/src/googletest/googletest
+          sudo make
+          sudo cp lib/libgtest* /usr/lib/
+          cd ..
+          sudo rm -rf build
+          sudo mkdir /usr/local/lib/googletest
+          sudo ln -s /usr/lib/libgtest.a /usr/local/lib/googletest/libgtest.a
+          sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/googletest/libgtest_main.a
 
+      - name: Compile Test and Main
+        run: |
+          rm -rf build
+          mkdir build && cd build  
+          cmake ..
+          make
+      - name: Run tests
+        run: ./MiscadaProjectGp12Tests
