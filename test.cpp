@@ -11,7 +11,7 @@ protected:
 
 // Test countElementsAboveThreshold function
 TEST_F(GSTest, CountElementsAboveThreshold) {
-    double threshold = 0.5;
+    double threshold = 0.6;
     double count = countElementsAboveThreshold(threshold);
     ASSERT_GE(count, 0.0);
     ASSERT_LE(count, 1.0);
