@@ -1,3 +1,4 @@
+#include "gs/gs.h"
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -5,7 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
-#include "gs.h"
+
 // Define simulation parameters
 const int width = 256;                // Width of the grid
 const int height = 256;               // Height of the grid
