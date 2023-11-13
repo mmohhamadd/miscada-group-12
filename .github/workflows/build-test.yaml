@@ -18,5 +18,5 @@ jobs:
           make all
       - name: Run Tests
         run: 
-          cd $HOME/build
-          ./build/MiscadaProjectGp12Tests
+          $HOME/build/ctest
+      
