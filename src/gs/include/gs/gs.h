@@ -1,3 +1,4 @@
+
 #ifndef GS_H
 #define GS_H
 
@@ -23,4 +24,4 @@ extern const int outputInterval;
 extern std::vector<std::vector<double>> u;
 extern std::vector<std::vector<double>> v;
 
-#endif // GS_H
+#endif
