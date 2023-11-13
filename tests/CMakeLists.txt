@@ -10,8 +10,6 @@ FetchContent_MakeAvailable(googletest)
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
-enable_testing()
-
 add_executable(
   gs_test
   gs_test.cpp
@@ -20,7 +18,7 @@ add_executable(
 target_link_libraries(
   gs_test
   PRIVATE
-  GTest::GTest
+  gtest_main
   gs
 )
 include(GoogleTest)

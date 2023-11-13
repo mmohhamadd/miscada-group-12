@@ -1,8 +1,6 @@
 #include "gs/gs.h"
 #include <gtest/gtest.h>
 
-#define TESTS
-
 TEST(GSTests, CountElementsAboveThreshold) {
     double threshold = 0.5;
     double count = countElementsAboveThreshold(threshold);
