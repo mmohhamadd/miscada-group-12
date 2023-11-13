@@ -17,5 +17,4 @@ jobs:
           cmake ..
           make all -j
       - name: Run Tests
-        run: 
-          ./build/ctest
+        run: ./build/MiscadaProjectGp12Tests
