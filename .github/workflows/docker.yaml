@@ -1,7 +1,12 @@
-name: C/C++ CI
+name: Docker
 
 on:
+  workflow_run:
+    workflows: ["Build and Test"]
+    types:
+      - completed
   push:
+    branches: ["main"]
   pull_request:
     branches: ["main"]
 
