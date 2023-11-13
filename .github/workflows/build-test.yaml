@@ -18,5 +18,4 @@ jobs:
           make all -j
       - name: Run Tests
         run: 
-          cd build
-          ctest
+          ./build/ctest
