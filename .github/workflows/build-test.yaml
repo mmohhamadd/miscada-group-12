@@ -20,4 +20,25 @@ jobs:
         run: |
           cd build
           ctest
-      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: build/
+
+  docker:
+    depends-on: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download the build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifacts
+      - name: Build Docker Image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/gray-scott-sim-cpp-with-tests .
+      - name: docker login
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Push Docker Image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/gray-scott-sim-cpp-with-tests
