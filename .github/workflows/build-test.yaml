@@ -17,6 +17,7 @@ jobs:
           cmake ..
           make all
       - name: Run Tests
-        run: 
-          $HOME/build/ ctest
+        run: |
+          cd build
+          ctest
       
