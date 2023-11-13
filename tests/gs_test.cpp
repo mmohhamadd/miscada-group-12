@@ -1,8 +1,7 @@
 #include "gs/gs.h"
 #include <gtest/gtest.h>
-#define TESTS
 
-namespace {
+#define TESTS
 
 TEST(GSTests, CountElementsAboveThreshold) {
     double threshold = 0.5;
@@ -33,5 +32,3 @@ TEST(GSTests, GridInitializationTest) {
     }
 }
 
-
-}  //namespace
