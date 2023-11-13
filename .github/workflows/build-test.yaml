@@ -17,4 +17,6 @@ jobs:
           cmake ..
           make all -j
       - name: Run Tests
-        run: ctest
+        run: 
+          cd build
+          ctest
