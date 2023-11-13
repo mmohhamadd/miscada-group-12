@@ -22,6 +22,7 @@ jobs:
           ctest
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
+        if: github.ref == 'refs/heads/main'
         with:
           name: build-artifacts
           path: build/
