@@ -7,7 +7,7 @@ pv.start_xvfb()
 
 # Get a list of all files in the directory
 BASE_DIR = os.path.join( os.path.dirname('__file__'), '..' )
-directory = BASE_DIR + '/build/src/app/data/'
+directory = BASE_DIR + '/app/data/'
 files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
 files.sort(key = len)
 # Create a plotter object to plot and animate
