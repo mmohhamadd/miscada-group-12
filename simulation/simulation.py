@@ -8,7 +8,7 @@ pv.start_xvfb()
 # Get a list of all files in the directory
 directory = '/app/data/'
 files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
-
+files.sort(key = len)
 # Create a plotter object to plot and animate
 print("creating animation ...")
 plotter = pv.Plotter()
