@@ -4,7 +4,7 @@ Workdir /app
 
 # Install Python and simulation dependencies
 RUN apt-get update && apt-get install -y python3 python3-pip libgl1-mesa-glx libxrender1 xvfb
-Copy ./requirements.txt .
+COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # init data folder
@@ -20,4 +20,4 @@ RUN chmod +x ./run.sh
 EXPOSE 5050
 
 # Run the output executable
-ENTRYPOINT ./run.sh
+CMD ["./run.sh"]
