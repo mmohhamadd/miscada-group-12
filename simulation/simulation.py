@@ -9,23 +9,30 @@ pv.start_xvfb()
 directory = '/app/data/'
 files = [f for f in os.listdir(directory) if os.path.isfile(
     os.path.join(directory, f))]
-files.sort(key=len)
+# files.sort(key=len)
+files = sorted(files, key=len)
 # Create a plotter object to plot and animate
 print("creating animation ...")
 plotter = pv.Plotter()
 # plotter.set_movie_delay(200)
 mesh = pv.read('/app/data/output_0.vtk')
 plotter.add_mesh(mesh)
-plotter.open_gif('/app/data/animation.gif')
+plotter.open_gif('/app/data/animation.gif', fps=6)
 # Loop over all frames
-for file in files:
-    mesh = pv.read(f'/app/data/{file}')
+for i in range(len(files)):
+    try:
+        i = i*100
+        mesh = pv.read(f'/app/data/output_{i}.vtk')
+        plotter.clear()
+        plotter.add_mesh(mesh)
 
-    plotter.clear()
-    plotter.add_mesh(mesh)
+        # Write this frame to the GIF
+        plotter.write_frame()
+    except:
+        # print("error while creating animation")
+        continue
 
-    # Write this frame to the GIF
-    plotter.write_frame()
+
 plotter.close()
 
 
