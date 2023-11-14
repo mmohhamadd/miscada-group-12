@@ -12,7 +12,6 @@ files.sort(key = len)
 # Create a plotter object to plot and animate
 print("creating animation ...")
 plotter = pv.Plotter()
-plotter.set_movie_delay(200)
 mesh = pv.read('/app/data/output_0.vtk')
 plotter.add_mesh(mesh)
 plotter.open_gif('/app/data/animation.gif')
