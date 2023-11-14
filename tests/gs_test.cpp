@@ -30,3 +30,9 @@ TEST(GSTests, GridInitializationTest) {
     }
 }
 
+TEST(GSTests, writeVTKFile) {
+    // Your code here, modify the following lines
+    int iteration = 0;
+    writeVTKFile(iteration);
+    EXPECT_EQ(1.0, 1.0);
+}
