@@ -15,6 +15,7 @@ COPY ./build ./build
 # Copy the simulation script and run script into the Docker image
 COPY ./simulation/simulation.py ./run.sh ./
 RUN chmod +x ./run.sh
+RUN chmod +x ./build/src/gs_main
 
 # Expose the port 5050 for serving animation
 EXPOSE 5050
