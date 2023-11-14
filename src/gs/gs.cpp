@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
+#include <filesystem> 
 
 // Define simulation parameters
 const int width = 256;                // Width of the grid
@@ -41,8 +42,10 @@ void init() {
 
 // Function to write the u array to a VTK file
 void writeVTKFile(int iteration) {
+
     std::stringstream ss;
-    ss << "/app/data/output_" << iteration << ".vtk";
+    std::filesystem::create_directories("app/data/");
+    ss << "app/data/output_" << iteration << ".vtk";
 
     std::ofstream vtkFile(ss.str());
     vtkFile << "# vtk DataFile Version 3.0\n";
