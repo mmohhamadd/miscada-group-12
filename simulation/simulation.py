@@ -2,36 +2,36 @@ import pyvista as pv
 import os
 import http.server
 import socketserver
-import imageio
-import matplotlib.pyplot as plt
-from PIL import Image
-import numpy as np
 
-def update_plot(file):
-    plt.clf()
-    grid = pv.read(file)
-    fig = grid.plot(show_scalar_bar=False, show_axes=False, screenshot=True)
-    im = Image.fromarray(np.uint8(fig))
-    return im
-
+pv.start_xvfb()
 
 # Get a list of all files in the directory
-BASE_DIR = os.path.join( os.path.dirname('__file__'), '..' )
-directory = BASE_DIR + '/build/src/app/data/'
+directory = '/app/data/'
 files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
 
 # Create a plotter object to plot and animate
 print("creating animation ...")
-files.sort(key = len)
-data = [update_plot(directory + files[i]) for i in range(len(files))]
-print(data)
-imageio.mimsave(BASE_DIR + '/simulation/animation.gif', data)
+plotter = pv.Plotter()
+plotter.set_movie_delay(200)
+mesh = pv.read('/app/data/output_0.vtk')
+plotter.add_mesh(mesh)
+plotter.open_gif('/app/data/animation.gif')
+# Loop over all frames
+for file in files:
+    mesh = pv.read(f'/app/data/{file}')
 
+    plotter.clear()
+    plotter.add_mesh(mesh)
+
+    # Write this frame to the GIF
+    plotter.write_frame()
+plotter.close()
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
+        base_dir = '/app/data/'
         requested_path = path[1:]  # Remove the leading '/'
-        return os.path.join(BASE_DIR + '/simulation/', requested_path)
+        return os.path.join(base_dir, requested_path)
 
 # serving the animation and files
 PORT = 5050
