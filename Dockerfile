@@ -14,6 +14,7 @@ COPY ./build ./build
 
 # Copy the simulation script and run script into the Docker image
 COPY ./simulation/simulation.py ./run.sh ./
+USER root
 RUN chmod 755 run.sh
 
 # Expose the port 5050 for serving animation
