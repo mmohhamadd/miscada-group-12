@@ -20,4 +20,4 @@ RUN chmod -x run.sh
 EXPOSE 5050
 
 # Run the output executable
-ENTRYPOINT ["sh","/run.sh"]
+ENTRYPOINT ["sh","/app/run.sh"]
