@@ -36,3 +36,5 @@ use Google Test
 ### test2: Check that the variables u and v are the same size.
 
 ### test3: Check that the simulation produces the mathematically correct answer when u = 0 and v = 0.
+
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
