@@ -21,6 +21,7 @@ RUN chmod +x ./build/src/gs_main
 # which will leave these lines with LF (\n) as the ending, and Bash will be able to read and execute the file by running, essentially DOS to UNIX conversion
 RUN sed -i -e 's/\r$//' run.sh
 
+
 # Expose the port 5050 for serving animation
 EXPOSE 5050
 
