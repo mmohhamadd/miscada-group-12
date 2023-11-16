@@ -47,8 +47,8 @@ docker run -p 5050:5050 -it mmohhamadd/gray-scott-sim-cpp-with-tests
 4- Once the C++ simulation ends, the Python script will start creating an animation from the simulation outputs.
 
 5- After the animation is created, an HTTP server will host the result. You can view the animation by visiting the following link in your web browser:
-[https://localhost:5050/animation.gif](URL)
+[http://localhost:5050/animation.gif](URL)
 
 Enjoy the simulation!
-![animation](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/7040348c-35ee-4b0b-bf9d-8ab2e2fceda3)
+![image](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/4130fca2-95ce-4216-9b40-2dbb88003918)
 
