@@ -1,49 +1,54 @@
 # Gray-Scott Simulation C++ Implementation
-
- Gray-Scott reaction-diffusion model implementation and simulation
-
 ## Description
 
-Reaction-diffusion models are notable for producing many patterns found in nature. In this short project, we solve the Gray-Scott reaction-diffusion equations with parameters given from user input.
-
+This repository contains a C++ implementation of the Gray-Scott reaction-diffusion model, including simulation and testing. The Gray-Scott model is a mathematical formulation that describes how the concentration of substances distributed in space changes under the influence of local chemical reactions and diffusion. This project allows users to input specific parameters to observe a variety of patterns produced by the model.
 
 
 
 The model is described in the following figure.
-
 <p align="center"><img src="https://user-images.githubusercontent.com/17126595/50368112-549ae900-057d-11e9-85db-464ab4caaae8.png" width="250" alt="gray scott model"/></p>
 
-And the parameters we ask the user to input is with the following format:
 
+The parameters required from the user are formatted as follows:
 <p align="center"><img src="https://user-images.githubusercontent.com/17126595/50368114-55337f80-057d-11e9-880e-b23dedfa18fa.png" width="130" alt="params"/></p>
 
-## How to build and run the project locally?
+## Building and Running the Project Locally
+To build and run the project locally, use the following commands:
 ```
 mkdir build && cd build
 cmake ..
 make all -j
 ./src/gs_main
 ```
-## Tests
+## Testing
 
-Simulation functionality is continuously being tested using Google Test software. In order to run tests locally, just run ```ctest``` in the root directory.
+The functionality of the simulation is continuously tested using Google Test. To run the tests locally, execute ```ctest``` command.
 
-## CI/CD
+## Continuous Integration/Continuous Deployment (CI/CD)
 
-Our CI/CD setup using Github action continuously updates the official docker image of the project on DockerHub on each modification on the main branch, 
-every commit on each branch is also triggeres build job of GitHub action which checks the integrity of all tests have been passed
+Our CI/CD pipeline uses GitHub Actions and consists of two parts. First, every commit on all branches triggers a 'build' job that checks the integrity of the code and verifies that all tests pass. If a commit is made to the main branch, GitHub Actions will automatically update the official Docker image of the project on DockerHub in 'docker' job.
 
-## Container
-In order to run our software with docker containers (which we encourage you to do so), the only thing you should do is run the command below. 
+Here is an example of a successful GitHub Actions run:
+![image](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/4e788526-b8bf-4bb4-9d28-676e69363e7a)
+
+
+## Running the Project Using Docker
+We recommend running our software using Docker as it integrates a Python script that generates a visually appealing simulation output. Follow the steps below:
+
+1- Open a terminal and run the following command:
 ```
-docker run -p 5050:5050 -it --name grey-scott-simulation mmohhamadd/gray-scott-sim-cpp-with-tests
+docker run -p 5050:5050 -it mmohhamadd/gray-scott-sim-cpp-with-tests
 ```
-make sure you do it in a terminal, because you will be prompted to input your arbitary value to the problem parameters and after quite a while the c++ simulation ends and again the process of creating 
-an animation from the outputs from the previous stage will be started. after the python script creates an animation, an http server will host the result and you will see a link like 
+2- you will be prompted to input your arbitrary values for the problem parameters. If you don't provide any, the system will generate random ones for you.
+![image](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/98c6860e-a423-441c-a8db-1426d63ba38e)
 
-https://localhost:5050/animation.gif 
+3- The C++ simulation will then start. This process may take a while.
 
-which will redirect you to the output of the simulation shown in format of a gif
+4- Once the C++ simulation ends, the Python script will start creating an animation from the simulation outputs.
 
-![](https://github.com/mmohhamadd/miscada-group-12/blob/main/data/animations/animation-sample.gif)
+5- After the animation is created, an HTTP server will host the result. You can view the animation by visiting the following link in your web browser:
+[https://localhost:5050/animation.gif](URL)
+
+Enjoy the simulation!
+![animation](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/7040348c-35ee-4b0b-bf9d-8ab2e2fceda3)
 
