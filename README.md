@@ -50,5 +50,5 @@ docker run -p 5050:5050 -it mmohhamadd/gray-scott-sim-cpp-with-tests
 [http://localhost:5050/animation.gif](URL)
 
 Enjoy the simulation!
-![image](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/4130fca2-95ce-4216-9b40-2dbb88003918)
+![animation (1)](https://github.com/mmohhamadd/miscada-group-12/assets/48697484/6419b029-7659-4174-8cc3-ed43f5a6ea2f)
 
