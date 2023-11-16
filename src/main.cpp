@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     }
        
     init();
-    std::cout << "Simulation initiated." << std::endl;
+    std::cout << "Simulation initiated with parameters: Du=" << Du << ", Dv=" << Dv << ", F=" << F << ", k=" << k << ", threshold=" << threshold << std::endl;
 
     // Main simulation loop
     for (int iteration = 0; iteration < numIterations; ++iteration) {
