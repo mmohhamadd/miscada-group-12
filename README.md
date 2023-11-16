@@ -1,7 +1,7 @@
 # Gray-Scott Simulation C++ Implementation
 ## Description
 
-This repository contains a C++ implementation of the Gray-Scott reaction-diffusion model, including simulation and testing. The Gray-Scott model is a mathematical formulation that describes how the concentration of substances distributed in space changes under the influence of local chemical reactions and diffusion. This project allows users to input specific parameters to observe a variety of patterns produced by the model.
+This repository contains a C++ implementation of the Gray-Scott reaction-diffusion model, including simulation and testing. The Gray-Scott model is a mathematical formulation that describes how the concentration of substances distributed in space changes under the influence of local chemical reactions and diffusion. This project allows users to input specific parameters to observe a variety of patterns produced by the model..
 
 
 
