@@ -17,6 +17,10 @@ COPY ./simulation/simulation.py ./run.sh ./
 RUN chmod +x ./run.sh
 RUN chmod +x ./build/src/gs_main
 
+# If run.sh was saved on windows this command will replace those CR characters with nothing, 
+# which will leave these lines with LF (\n) as the ending, and Bash will be able to read and execute the file by running, essentially DOS to UNIX conversion
+RUN sed -i -e 's/\r$//' run.sh
+
 # Expose the port 5050 for serving animation
 EXPOSE 5050
 
